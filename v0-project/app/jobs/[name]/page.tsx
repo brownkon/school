@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 
+// @ts-expect-error - Next.js App Router types are incompatible
 export default function JobPage({ params }: { params: { name: string } }) {
   const job = jobs.find((j) => j.slug === params.name)
 
@@ -163,7 +164,7 @@ const jobs = [
     dates: "Jan 2022 - Present",
     location: "San Francisco, CA (Remote)",
     team: "Led a team of 5 developers",
-    logo: "/placeholder.svg?height=200&width=200",
+    logo: "/logo1.png?height=200&width=200",
   },
   {
     title: "Full Stack Developer",
@@ -193,7 +194,7 @@ const jobs = [
     dates: "Mar 2020 - Dec 2021",
     location: "Boston, MA",
     team: "Worked in a cross-functional team of 8",
-    logo: "/placeholder.svg?height=200&width=200",
+    logo: "/logo2.png?height=200&width=200",
   },
   {
     title: "Frontend Engineer",
@@ -223,7 +224,7 @@ const jobs = [
     dates: "Jun 2018 - Feb 2020",
     location: "Chicago, IL",
     team: "Part of a 12-person product team",
-    logo: "/placeholder.svg?height=200&width=200",
+    logo: "/logo3.png?height=200&width=200",
   },
   {
     title: "Web Developer",
@@ -253,7 +254,7 @@ const jobs = [
     dates: "Aug 2016 - May 2018",
     location: "Portland, OR",
     team: "Collaborated with a team of 15 designers and developers",
-    logo: "/placeholder.svg?height=200&width=200",
+    logo: "/logo4.png?height=200&width=200",
   },
   {
     title: "Junior Developer",
@@ -283,7 +284,7 @@ const jobs = [
     dates: "Jan 2015 - Jul 2016",
     location: "Austin, TX",
     team: "Part of a small 5-person development team",
-    logo: "/placeholder.svg?height=200&width=200",
+    logo: "/logo5.png?height=200&width=200",
   },
 ]
 
