@@ -6,24 +6,21 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 
-interface JobPageProps {
-    params: {
-      name: string;
-    };
-  }
+interface JobParams {
+  name: string
+}
 
-
-export default function JobPage({ params }: JobPageProps) {
+export default function JobPage({ params }: { params: JobParams }) {
   const job = jobs.find((j) => j.slug === params.name)
 
   if (!job) {
     return (
       <div className="container mx-auto flex min-h-[70vh] flex-col items-center justify-center px-4 py-12 text-center sm:px-6 lg:px-8">
         <h1 className="text-4xl font-bold">Job Not Found</h1>
-        <p className="mt-4 text-xl text-muted-foreground">
-          The job you are looking for doest exist or has been removed.
+        <p className="mt-4 text-xl text-gray-500 dark:text-gray-400">
+          The job you&apos;re looking for doesn&apos;t exist or has been removed.
         </p>
-        <Button asChild className="mt-8">
+        <Button asChild className="mt-8 bg-blue-500 hover:bg-blue-600 text-white">
           <Link href="/jobs">
             <ArrowLeft className="mr-2 h-4 w-4" /> Back to Jobs
           </Link>
@@ -34,7 +31,7 @@ export default function JobPage({ params }: JobPageProps) {
 
   return (
     <main className="container mx-auto px-4 py-12 sm:px-6 lg:px-8">
-      <Button variant="ghost" asChild className="mb-8">
+      <Button variant="ghost" asChild className="mb-8 hover:bg-gray-100 dark:hover:bg-gray-800">
         <Link href="/jobs">
           <ArrowLeft className="mr-2 h-4 w-4" /> Back to Jobs
         </Link>
@@ -43,16 +40,16 @@ export default function JobPage({ params }: JobPageProps) {
       <div className="grid gap-12 lg:grid-cols-[2fr_1fr]">
         <div>
           <div className="flex items-center gap-6">
-            <div className="relative h-24 w-24 overflow-hidden rounded-lg border bg-background p-1">
+            <div className="relative h-32 w-32 overflow-hidden rounded-lg border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-2">
               <Image src={job.logo || "/placeholder.svg"} alt={job.company} fill className="object-contain" />
             </div>
             <div>
               <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">{job.title}</h1>
-              <p className="mt-2 text-2xl text-muted-foreground">{job.company}</p>
+              <p className="mt-2 text-2xl text-gray-500 dark:text-gray-400">{job.company}</p>
             </div>
           </div>
 
-          <div className="mt-6 flex flex-wrap items-center gap-4 text-muted-foreground">
+          <div className="mt-6 flex flex-wrap items-center gap-4 text-gray-500 dark:text-gray-400">
             <div className="flex items-center">
               <Calendar className="mr-2 h-4 w-4" />
               <span>{job.dates}</span>
@@ -69,14 +66,16 @@ export default function JobPage({ params }: JobPageProps) {
             <h2 className="text-2xl font-bold">Job Description</h2>
             <div className="mt-4 space-y-4 text-lg">
               {job.description.map((paragraph, index) => (
-                <p key={index}>{paragraph}</p>
+                <p key={index} className="text-gray-700 dark:text-gray-300">
+                  {paragraph}
+                </p>
               ))}
             </div>
           </div>
 
           <div className="mt-12">
             <h2 className="text-2xl font-bold">Key Responsibilities</h2>
-            <ul className="mt-4 list-inside list-disc space-y-2 text-lg">
+            <ul className="mt-4 list-inside list-disc space-y-2 text-lg text-gray-700 dark:text-gray-300">
               {job.responsibilities.map((responsibility, index) => (
                 <li key={index}>{responsibility}</li>
               ))}
@@ -85,7 +84,7 @@ export default function JobPage({ params }: JobPageProps) {
 
           <div className="mt-12">
             <h2 className="text-2xl font-bold">Achievements</h2>
-            <ul className="mt-4 list-inside list-disc space-y-2 text-lg">
+            <ul className="mt-4 list-inside list-disc space-y-2 text-lg text-gray-700 dark:text-gray-300">
               {job.achievements.map((achievement, index) => (
                 <li key={index}>{achievement}</li>
               ))}
@@ -94,18 +93,18 @@ export default function JobPage({ params }: JobPageProps) {
         </div>
 
         <div className="space-y-8">
-          <Card>
+          <Card className="border-gray-200 dark:border-gray-800">
             <CardContent className="pt-6">
               <div className="space-y-6">
                 <div>
                   <h3 className="mb-2 font-medium">Employment Period</h3>
-                  <p>{job.dates}</p>
+                  <p className="text-gray-700 dark:text-gray-300">{job.dates}</p>
                 </div>
 
                 {job.location && (
                   <div>
                     <h3 className="mb-2 font-medium">Location</h3>
-                    <p>{job.location}</p>
+                    <p className="text-gray-700 dark:text-gray-300">{job.location}</p>
                   </div>
                 )}
 
@@ -113,7 +112,11 @@ export default function JobPage({ params }: JobPageProps) {
                   <h3 className="mb-2 font-medium">Skills & Technologies</h3>
                   <div className="flex flex-wrap gap-2">
                     {job.skills.map((skill) => (
-                      <Badge key={skill} variant="secondary">
+                      <Badge
+                        key={skill}
+                        variant="secondary"
+                        className="bg-blue-500/10 text-blue-700 dark:text-blue-300"
+                      >
                         {skill}
                       </Badge>
                     ))}
@@ -123,7 +126,7 @@ export default function JobPage({ params }: JobPageProps) {
                 {job.team && (
                   <div>
                     <h3 className="mb-2 font-medium">Team Size</h3>
-                    <p>{job.team}</p>
+                    <p className="text-gray-700 dark:text-gray-300">{job.team}</p>
                   </div>
                 )}
               </div>
@@ -164,7 +167,7 @@ const jobs = [
     dates: "Jan 2022 - Present",
     location: "San Francisco, CA (Remote)",
     team: "Led a team of 5 developers",
-    logo: "/logo1.png?height=200&width=200",
+    logo: "/placeholder.svg?height=200&width=200",
   },
   {
     title: "Full Stack Developer",
@@ -194,7 +197,7 @@ const jobs = [
     dates: "Mar 2020 - Dec 2021",
     location: "Boston, MA",
     team: "Worked in a cross-functional team of 8",
-    logo: "/logo2.png?height=200&width=200",
+    logo: "/placeholder.svg?height=200&width=200",
   },
   {
     title: "Frontend Engineer",
@@ -224,7 +227,7 @@ const jobs = [
     dates: "Jun 2018 - Feb 2020",
     location: "Chicago, IL",
     team: "Part of a 12-person product team",
-    logo: "/logo3.png?height=200&width=200",
+    logo: "/placeholder.svg?height=200&width=200",
   },
   {
     title: "Web Developer",
@@ -254,7 +257,7 @@ const jobs = [
     dates: "Aug 2016 - May 2018",
     location: "Portland, OR",
     team: "Collaborated with a team of 15 designers and developers",
-    logo: "/logo4.png?height=200&width=200",
+    logo: "/placeholder.svg?height=200&width=200",
   },
   {
     title: "Junior Developer",
@@ -284,7 +287,7 @@ const jobs = [
     dates: "Jan 2015 - Jul 2016",
     location: "Austin, TX",
     team: "Part of a small 5-person development team",
-    logo: "/logo5.png?height=200&width=200",
+    logo: "/placeholder.svg?height=200&width=200",
   },
 ]
 

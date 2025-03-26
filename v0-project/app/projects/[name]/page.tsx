@@ -6,13 +6,11 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 
-interface ProjectPageProps {
-  params: {
-    name: string
-  }
+interface ProjectParams {
+  name: string
 }
 
-export default function ProjectPage({ params }: ProjectPageProps) {
+export default function ProjectPage({ params }: { params: ProjectParams }) {
   const project = projects.find((p) => p.slug === params.name)
 
   if (!project) {
@@ -20,7 +18,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
       <div className="container mx-auto flex min-h-[70vh] flex-col items-center justify-center px-4 py-12 text-center sm:px-6 lg:px-8">
         <h1 className="text-4xl font-bold">Project Not Found</h1>
         <p className="mt-4 text-xl text-muted-foreground">
-          The project you are looking for does not exist or has been removed.
+          The project you&apos;re looking for doesn&apos;t exist or has been removed.
         </p>
         <Button asChild className="mt-8">
           <Link href="/projects">
@@ -143,7 +141,7 @@ const projects = [
     ],
     technologies: ["Next.js", "TypeScript", "Prisma", "Stripe"],
     dates: "Jan 2023 - Apr 2023",
-    image: "/coder1.jpg?height=600&width=1200",
+    image: "/placeholder.svg?height=600&width=1200",
     links: [
       { label: "View GitHub Repository", url: "https://github.com", icon: "github" },
       { label: "Visit Live Site", url: "https://example.com", icon: "external" },
@@ -167,7 +165,7 @@ const projects = [
     ],
     technologies: ["React Native", "Firebase", "Redux", "Chart.js"],
     dates: "May 2022 - Dec 2022",
-    image: "/coder2.jpg?height=600&width=1200",
+    image: "/placeholder.svg?height=600&width=1200",
     links: [
       { label: "View GitHub Repository", url: "https://github.com", icon: "github" },
       { label: "Download App", url: "https://example.com", icon: "external" },
@@ -191,7 +189,7 @@ const projects = [
     ],
     technologies: ["React", "D3.js", "Node.js", "MongoDB"],
     dates: "Aug 2021 - Mar 2022",
-    image: "/coder3.jpg?height=600&width=1200",
+    image: "/placeholder.svg?height=600&width=1200",
     links: [
       { label: "View GitHub Repository", url: "https://github.com", icon: "github" },
       { label: "View Demo", url: "https://example.com", icon: "external" },
@@ -215,7 +213,7 @@ const projects = [
     ],
     technologies: ["Vue.js", "Python", "FastAPI", "PostgreSQL"],
     dates: "Feb 2021 - Jul 2021",
-    image: "/coder4.jpg?height=600&width=1200",
+    image: "/placeholder.svg?height=600&width=1200",
     links: [{ label: "View GitHub Repository", url: "https://github.com", icon: "github" }],
   },
   {
@@ -236,7 +234,7 @@ const projects = [
     ],
     technologies: ["Next.js", "OpenAI API", "TailwindCSS", "Vercel AI SDK"],
     dates: "Oct 2022 - Jan 2023",
-    image: "/coder5.jpg?height=600&width=1200",
+    image: "/placeholder.svg?height=600&width=1200",
     links: [
       { label: "View GitHub Repository", url: "https://github.com", icon: "github" },
       { label: "Try the Demo", url: "https://example.com", icon: "external" },
