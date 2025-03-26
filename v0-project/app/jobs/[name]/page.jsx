@@ -6,8 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 
-// @ts-expect-error - Next.js App Router types are incompatible
-export default function JobPage({ params }: { params: { name: string } }) {
+export default function JobPage({ params }) {
   const job = jobs.find((j) => j.slug === params.name)
 
   if (!job) {

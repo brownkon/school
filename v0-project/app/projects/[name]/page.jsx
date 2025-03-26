@@ -6,8 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 
-// @ts-expect-error - Next.js App Router types are incompatible
-export default function ProjectPage({ params }: { params: { name: string } }) {
+export default function ProjectPage({ params }) {
   const project = projects.find((p) => p.slug === params.name)
 
   if (!project) {
@@ -138,7 +137,7 @@ const projects = [
     ],
     technologies: ["Next.js", "TypeScript", "Prisma", "Stripe"],
     dates: "Jan 2023 - Apr 2023",
-    image: "/coder5.jpg?height=600&width=1200",
+    image: "/coder1.jpg?height=600&width=1200",
     links: [
       { label: "View GitHub Repository", url: "https://github.com", icon: "github" },
       { label: "Visit Live Site", url: "https://example.com", icon: "external" },
@@ -162,7 +161,7 @@ const projects = [
     ],
     technologies: ["React Native", "Firebase", "Redux", "Chart.js"],
     dates: "May 2022 - Dec 2022",
-    image: "/coder4.jpg?height=600&width=1200",
+    image: "/coder2.jpg?height=600&width=1200",
     links: [
       { label: "View GitHub Repository", url: "https://github.com", icon: "github" },
       { label: "Download App", url: "https://example.com", icon: "external" },
@@ -210,7 +209,7 @@ const projects = [
     ],
     technologies: ["Vue.js", "Python", "FastAPI", "PostgreSQL"],
     dates: "Feb 2021 - Jul 2021",
-    image: "/coder2.jpg?height=600&width=1200",
+    image: "/coder4.jpg?height=600&width=1200",
     links: [{ label: "View GitHub Repository", url: "https://github.com", icon: "github" }],
   },
   {
@@ -231,7 +230,7 @@ const projects = [
     ],
     technologies: ["Next.js", "OpenAI API", "TailwindCSS", "Vercel AI SDK"],
     dates: "Oct 2022 - Jan 2023",
-    image: "/coder1.jpg?height=600&width=1200",
+    image: "/coder5.jpg?height=600&width=1200",
     links: [
       { label: "View GitHub Repository", url: "https://github.com", icon: "github" },
       { label: "Try the Demo", url: "https://example.com", icon: "external" },
