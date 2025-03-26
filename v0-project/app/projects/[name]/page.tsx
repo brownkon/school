@@ -6,11 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 
-interface ProjectParams {
-  name: string
-}
-
-export default function ProjectPage({ params }: { params: ProjectParams }) {
+export default function ProjectPage({ params }: { params: { name: string } }) {
   const project = projects.find((p) => p.slug === params.name)
 
   if (!project) {

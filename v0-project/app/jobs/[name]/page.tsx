@@ -6,11 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 
-interface JobParams {
-  name: string
-}
-
-export default function JobPage({ params }: { params: JobParams }) {
+export default function JobPage({ params }: { params: { name: string } }) {
   const job = jobs.find((j) => j.slug === params.name)
 
   if (!job) {
