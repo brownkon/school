@@ -7,10 +7,11 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 
 interface JobPageProps {
-  params: {
-    name: string
+    params: {
+      name: string;
+    };
   }
-}
+
 
 export default function JobPage({ params }: JobPageProps) {
   const job = jobs.find((j) => j.slug === params.name)
@@ -20,7 +21,7 @@ export default function JobPage({ params }: JobPageProps) {
       <div className="container mx-auto flex min-h-[70vh] flex-col items-center justify-center px-4 py-12 text-center sm:px-6 lg:px-8">
         <h1 className="text-4xl font-bold">Job Not Found</h1>
         <p className="mt-4 text-xl text-muted-foreground">
-          The job you are looking for does not exist or has been removed.
+          The job you are looking for doest exist or has been removed.
         </p>
         <Button asChild className="mt-8">
           <Link href="/jobs">
